@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -51,12 +51,12 @@ public class PhoneController {
 	}
 
 	@DeleteMapping("/remove/{id}")
-	public Phone remove(@PathVariable int id) {
+	public boolean remove(@PathVariable int id) {
 		return this.service.remove(id);
 	}
 
-	@PutMapping("/update/{id}")
-	public Phone updatePhone(@PathVariable int id, @RequestBody Phone newPhone) {
+	@PatchMapping("/update/{id}")
+	public ResponseEntity<Phone> updatePhone(@PathVariable int id, @RequestBody Phone newPhone) {
 		return this.service.updatePhone(id, newPhone);
 	}
 

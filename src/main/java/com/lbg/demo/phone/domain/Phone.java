@@ -44,9 +44,9 @@ public class Phone {
 		this.model = model;
 	}
 
-	@Override
-	public String toString() {
-		return "Phone [id=" + id + ", brand=" + brand + ", model=" + model + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Phone [id=" + id + ", brand=" + brand + ", model=" + model + "]";
+//	}
 
 }
