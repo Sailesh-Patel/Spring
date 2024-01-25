@@ -1,10 +1,32 @@
 package com.lbg.demo.phone.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Phone {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 
 	private String brand;
 
 	private String model;
+
+	public Phone() {
+		super();
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public String getBrand() {
 		return brand;
@@ -24,7 +46,7 @@ public class Phone {
 
 	@Override
 	public String toString() {
-		return "Phone [brand=" + brand + ", model=" + model + "]";
+		return "Phone [id=" + id + ", brand=" + brand + ", model=" + model + "]";
 	}
 
 }
