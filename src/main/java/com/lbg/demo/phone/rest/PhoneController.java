@@ -9,12 +9,14 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lbg.demo.phone.domain.Phone;
 import com.lbg.demo.phone.services.PhoneService;
 
 @RestController
+@RequestMapping("/Phone")
 public class PhoneController {
 
 	private PhoneService service;
@@ -50,14 +52,14 @@ public class PhoneController {
 
 	}
 
-	@DeleteMapping("/remove/{id}")
-	public boolean remove(@PathVariable int id) {
+	@DeleteMapping("/delete/{id}")
+	public boolean delete(@PathVariable int id) {
 		return this.service.remove(id);
 	}
 
 	@PatchMapping("/update/{id}")
 	public ResponseEntity<Phone> updatePhone(@PathVariable int id, @RequestBody Phone newPhone) {
-		return this.service.updatePhone(id, newPhone);
+		return this.service.update(id, newPhone);
 	}
 
 }

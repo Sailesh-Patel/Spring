@@ -1,9 +1,12 @@
 package com.lbg.demo.phone.domain;
 
+import com.lbg.demo.contract.domain.Contract;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Phone {
@@ -15,6 +18,9 @@ public class Phone {
 	private String brand;
 
 	private String model;
+
+	@ManyToOne
+	private Contract contract;
 
 	public Phone() {
 		super();
@@ -42,6 +48,14 @@ public class Phone {
 
 	public void setModel(String model) {
 		this.model = model;
+	}
+
+	public Contract getContract() {
+		return contract;
+	}
+
+	public void setContract(Contract contract) {
+		this.contract = contract;
 	}
 
 //	@Override

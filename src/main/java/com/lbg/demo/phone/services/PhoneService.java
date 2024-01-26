@@ -49,10 +49,10 @@ public class PhoneService {
 
 	// put mapping for 'update by id'
 
-	public ResponseEntity<Phone> updatePhone(int id, Phone newPhone) {
+	public ResponseEntity<Phone> update(int id, Phone newPhone) {
 		Optional<Phone> found = this.repo.findById(id);
 		if (found.isEmpty()) {
-			return new ResponseEntity<Phone>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		Phone existing = found.get();
 		if (newPhone.getBrand() != null) {
@@ -60,6 +60,9 @@ public class PhoneService {
 		}
 		if (newPhone.getModel() != null) {
 			existing.setModel(newPhone.getModel());
+		}
+		if (newPhone.getContract() != null) {
+			existing.setContract(newPhone.getContract());
 		}
 		Phone updated = this.repo.save(existing);
 		return ResponseEntity.ok(updated);
