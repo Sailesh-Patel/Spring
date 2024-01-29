@@ -1,9 +1,15 @@
 package com.lbg.demo.contract.domain;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.lbg.demo.phone.domain.Phone;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Contract {
@@ -17,6 +23,10 @@ public class Contract {
 	private String data;
 
 	private String minutes;
+
+	@JsonManagedReference
+	@OneToMany(mappedBy = "contract")
+	private List<Phone> Phones;
 
 	public Contract() {
 		super();

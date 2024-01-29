@@ -1,5 +1,6 @@
 package com.lbg.demo.phone.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.lbg.demo.contract.domain.Contract;
 
 import jakarta.persistence.Entity;
@@ -19,6 +20,7 @@ public class Phone {
 
 	private String model;
 
+	@JsonBackReference
 	@ManyToOne
 	private Contract contract;
 
